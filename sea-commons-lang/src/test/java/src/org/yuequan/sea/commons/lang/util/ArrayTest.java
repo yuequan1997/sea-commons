@@ -83,13 +83,21 @@ class ArrayTest {
         array.add(4);
         array.add(5);
 
+        //[2,3,4,5]
         array.remove(0);
         assertEquals(4, array.getSize());
         assertTrue(array.get(0) == 2);
 
+        //[2,3,4]
         array.remove(3);
         assertEquals(3, array.getSize());
         assertTrue(array.get(2) == 4);
+
+        //[2,4]
+        array.remove(1);
+        assertEquals(2, array.getSize());
+        assertTrue(array.get(0) == 2);
+        assertTrue(array.get(1) == 4);
 
     }
 }
