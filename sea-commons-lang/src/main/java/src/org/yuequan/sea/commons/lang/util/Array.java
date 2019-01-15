@@ -41,6 +41,7 @@ public class Array<E> {
      */
     public void add(int index, E e){
         checkIndexIsArrayOutOfBound(index);
+        expansionCapacity();
         for (int i = size; i > index; i--) {
             data[i] = data[i - 1];
         }
@@ -53,6 +54,7 @@ public class Array<E> {
      * @param e 要添加到数组中的元素
      */
     public void add(E e){
+        expansionCapacity();
         data[size] = e;
         size ++;
     }
@@ -100,6 +102,11 @@ public class Array<E> {
             }
             data[size - 1] = null;
             size --;
+
+            if((data.length / 2) > size){
+                resize(data.length / 2);
+                return;
+            }
         }
     }
 
@@ -109,6 +116,13 @@ public class Array<E> {
             newData[i] = data[i];
         }
         this.data = newData;
+    }
+
+    private void expansionCapacity(){
+        if(size + 1 == getCapacity()){
+            resize(2 * data.length);
+            return;
+        }
     }
 
     private void checkIndexIsArrayOutOfBound(int index){

@@ -100,4 +100,19 @@ class ArrayTest {
         assertTrue(array.get(1) == 4);
 
     }
+
+    @Test
+    void resize(){
+        Array<Integer> array = new Array<>(10);
+        assertEquals(10, array.getCapacity());
+        for (int i = 0; i < 10; i++) {
+            array.add(i);
+        }
+        assertTrue(array.getCapacity() > 10);
+
+        for (int i = 0; i < 7; i++) {
+            array.remove(0);
+        }
+        assertTrue(array.getCapacity() < 19);
+    }
 }
