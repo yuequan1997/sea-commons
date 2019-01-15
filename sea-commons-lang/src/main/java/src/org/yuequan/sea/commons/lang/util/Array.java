@@ -17,10 +17,18 @@ public class Array<E> {
         this.data = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
+    /**
+     * 获取数组当前元素数量
+     * @return 元素数量
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * 获取当前数组容量
+     * @return 当前数组容量
+     */
     public int getCapacity(){
         return data.length;
     }
