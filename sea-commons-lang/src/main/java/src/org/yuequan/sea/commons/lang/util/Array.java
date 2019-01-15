@@ -103,6 +103,14 @@ public class Array<E> {
         }
     }
 
+    private void resize(int capacity){
+        E[] newData = (E[]) new Object[capacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        this.data = newData;
+    }
+
     private void checkIndexIsArrayOutOfBound(int index){
         if(index < 0 || (index > size - 1 && size != 0)){
             throw new IllegalArgumentException("索引位置不能是负数或在大于数组的size！");
